@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spa-comments</title>
+</head>
+<body>
+{% block main %}
+{% endblock main %}
+
+{% block content %}
+<form method="post" action="{% url 'comment_create' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Додати коментар</button>
+</form>
+{% endblock %}
+</body>
+</html>
