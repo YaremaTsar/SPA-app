@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from comments.views import comment_create
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('comment_create/', comment_create, name='comment_create')
+    path('comment_create/', comment_create, name='comment_create'),
+    path('captcha/', include('captcha.urls')),
 ]

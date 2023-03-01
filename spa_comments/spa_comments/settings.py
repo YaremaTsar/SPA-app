@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'comments.apps.CommentsConfig',
-    'users.apps.UsersConfig',
+    'captcha',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import CommentsModels
 from .forms import CommentForm
+
 
 def comment_create(request):
     if request.method == "POST":
@@ -11,5 +12,7 @@ def comment_create(request):
             comment.save()
             return redirect("comments")
         else:
-            form = CommentForm()
-        return render(request, 'comments.html', {'form': form})
+            return HttpResponse('Форма не є дійсною')
+    else:
+        form = CommentForm()
+    return render(request, "base.html", {'form': form})
