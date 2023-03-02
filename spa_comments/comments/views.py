@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import CommentsModels
 from .forms import CommentForm
+from django.views.generic import ListView
+
+
+class CommentListView(ListView):
+    model = CommentsModels
 
 
 def comment_create(request):

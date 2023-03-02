@@ -9,7 +9,10 @@ class CommentForm(forms.ModelForm):
         fields = ["user", "text"]
         captcha = CaptchaField()
         email = forms.EmailField(validators=[EmailValidator(message='Введіть коректний email адрес.')])
-
+        widgets = {
+            'user': forms.TextInput(attrs={'class':'textinputclass'}),
+            'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'})
+        }
     def save(self, commit=True, user=None):
         comment = super().save(commit=False)
         comment.user = user

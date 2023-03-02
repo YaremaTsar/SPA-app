@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from comments.views import comment_create
+from comments.views import comment_create, CommentListView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('comment_create/', comment_create, name='comment_create'),
+    path('', comment_create, name='comment_create'),
     path('captcha/', include('captcha.urls')),
+    path('', CommentListView.as_view(), name="list")
 ]
